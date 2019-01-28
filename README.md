@@ -1,9 +1,13 @@
-# Tensorflow-examples
+# Building Neural Networks with Tensorflow 
 
-### Installing TensorFlow ++
+### Environment
 
-Macbook Air HighSierra 10.13.6
-Python 3.7 (Installed with Anaconda3)
+MacOS 10.13 64-bit
+Python 3.6 framework 
+Anaconda 4.6
+Tensorflow CPU version 1.12
+
+### Installing TensorFlow and dependencies
 
 Instructions for installing Tensorflow can be found [here](https://www.tensorflow.org/install/)
 
@@ -18,15 +22,14 @@ First, initiate a virtualenv, then install tensorflow
 	- Install matplotlib: python -m pip install -U matplotlib //requires python as a framework on MacOS
 
 	- Install TensorFlow Probability toolbox:
-		pip install --user --upgrade tfp-nightly
+		pip install --upgrade tfp-nightly
 
 More about the TF toolbox: https://medium.com/tensorflow/introducing-tensorflow-probability-dca4c304e245
 
+Note: edward (now edward2) has been ported to tensorflow_probability:
+https://github.com/tensorflow/probability/blob/master/tensorflow_probability/python/edward2/Upgrading_From_Edward_To_Edward2.md
 
 ### Neural Network - classify fashion images 
-
-Followed the TensorFLow tutorial :
-https://github.com/tensorflow/docs/blob/master/site/en/tutorials/keras/basic_classification.ipynb
 
 Dependencies:
 	tensorflow
@@ -53,5 +56,29 @@ Outcome:
 Code:
 	NN_MNIST.pynb
 
+### Bayesian Neural Network - classify handwritten digits
 
+Dependencies:
+	tensorflow
+	tf.keras 
+	numpy
+	matplotlib
+	pandas
+	seaborn
+	edward
+
+Dataset:
+	- the MNIST dataset of handwritten digits: http://yann.lecun.com/exdb/mnist/
+	- Training set: 60,000 images, Testing set: 10,000 images
+	- 10 categories: {0,1,..9}
+	- 28x28 image = 784 features  
+
+Model:
+	Task: classify the handwritten MNIST digits into one of the 10 classes {0,1,2,...9} and give a measure of the uncertainty of the classificatin. 
+	Model: soft-max regression 
+	Likelihood function: Categorical likelihood function - to quantify the probability of the observed data given a set of parameters, weights and biases in this case. The Categorical distrubution is also known as the Multinoulli distribution. 
+
+	Infer the posterior using Variational Inference - minimize the KL divergence between the the true posterior and approximating distributions 
+
+	We evaluate the model with a set of predictions and their accuracies, instead of a single prediction, as per regular NNs.
 
