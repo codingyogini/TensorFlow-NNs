@@ -5,8 +5,8 @@
 
 Blog: https://medium.com/p/b0a8214b7b7b
 - Introducing the Fashion MNIST dataset
-- Comparing neural network depth - 3-NN vs 6-NN
-- Improving predictions with epochs
+- Comparing neural network depth - NN-3 vs NN-6 vs NN-12
+- Improving predictions with epochs, from 5 to 50
 - Visualizing predictions 
 
 #### Dataset:
